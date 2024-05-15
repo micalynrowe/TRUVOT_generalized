@@ -1,0 +1,45 @@
+IDL PACKAGES USED DURING EXECUTION OF THIS CODE:
+I cannot provide the required packages for legal reasons.  The packages 
+are available for free at:
+  IDL Astronomy User's Library (http://idlastro.gsfc.nasa.gov/ftp/)
+  IDL Coyote: (http://www.idlcoyote.com/index.html)
+  CONMAKE: (https://davidpace.com/wp-content/uploads/2015/11/conmake.txt)
+
+   % Compiled module: OPTIMAL_SHIFT_TIME.
+   % Compiled module: READFITS.
+   % Compiled module: SXPAR.
+   % Compiled module: GETTOK.
+   % Compiled module: VALID_NUM.
+   % Compiled module: MRD_SKIP.
+   % Compiled module: WRITEFITS.
+   % Compiled module: CHECK_FITS.
+   % Compiled module: FXPAR.
+   % Compiled module: FXADDPAR.
+   % Compiled module: SXDELPAR.
+   % Compiled module: FITS_ADD_CHECKSUM.
+   % Compiled module: CHECKSUM32.
+   % Compiled module: N_BYTES.
+   % Compiled module: IS_IEEE_BIG.
+   % Compiled module: HOST_TO_IEEE.
+   % Compiled module: GET_DATE.
+   % Compiled module: DAYCNV.
+   % Compiled module: SXADDPAR.
+   % Compiled module: FITS_ASCII_ENCODE.
+   % Loaded DLM: QHULL.
+   % Compiled module: CONMAKE.
+   % LOADCT: Loading table Rainbow + white
+   % Compiled module: MASTER_SHIFT.
+   % Compiled module: READCOL.
+   % Compiled module: REMCHAR.
+   % Compiled module: STRNUMBER.
+   % Compiled module: INTERPOLATE_FUNCTION.
+   % Compiled module: SPECTRA_AVG.
+   % Compiled module: INTERPOLATE_FUNCTION_ERRORS.
+   % Compiled module: SUM.
+
+
+PYTHON PACKAGES USED IN THE EXECUTION OF THIS CODE:
+   os
+   pyfits
+   uvotgrism   (this has several requirements of its own.
+                please see uvotpy documentation for specifics.)
