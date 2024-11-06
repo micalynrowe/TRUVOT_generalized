@@ -5,13 +5,15 @@
 import os
 import os.path
 from uvotpy import uvotgrism
+from uvotpy import uvotgetspec
 import pyfits
 import numpy
 
-def truvot(targetid,ra,dec,exts):
+def truvot(targetid,ra,dec,exts,tw):
     #SET VARIABLES REQUIRED FOR UVOTPY (TARGET LOCATION ON SKY)
     ra = float(ra)
     dec = float(dec)
+    tw = float(tw) # need to add tw back in as an input to use this!!!
     #targetid = str(targetid)
 
     os.chdir(targetid+'/uvot/image') #CHANGE WORKING DIRECTORY TO BE THE DATA DIRECTORY
@@ -19,15 +21,19 @@ def truvot(targetid,ra,dec,exts):
     obsid = targetid #OBSID OF OBSERVATION
     ext = 1 #OPERATE ON THE 1ST IMAGE EXTENSION
     e=pyfits.getdata('sw'+targetid+'ugu_dt_template_1.fits') #READ IN THE TEMPLATE FOR THIS SNAPSHOT AS AN ARRAY
-    Z = uvotgrism.getSpec(ra,dec,obsid,ext,fit_second=True,wr_outfile=True,chatter=1,background_template=e) #EXECUTE UVOTPY
+    uvotgetspec.trackwidth = tw
+    print ('Changed the trackwidth!!!!')
+    Z = uvotgetspec.getSpec(ra,dec,obsid,ext,fit_second=True,wr_outfile=True,chatter=1,background_template=e,clobber=True) #EXECUTE UVOTPY
     if exts > 1:
         ext = 2 #REPEAT THE PROCEDURE FOR THE 2ND IMAGE EXTENSION
         e=pyfits.getdata('sw'+targetid+'ugu_dt_template_2.fits')
-        Z = uvotgrism.getSpec(ra,dec,obsid,ext,fit_second=True,wr_outfile=True,chatter=1,background_template=e)
+        uvotgetspec.trackwidth = tw
+        Z = uvotgetspec.getSpec(ra,dec,obsid,ext,fit_second=True,wr_outfile=True,chatter=1,background_template=e,clobber=True)
         if exts > 2:
             ext = 3 #REPEAT THE PROCEDURE FOR THE 3RD IMAGE EXTENSION
             e=pyfits.getdata('sw'+targetid+'ugu_dt_template_3.fits')
-            Z = uvotgrism.getSpec(ra,dec,obsid,ext,fit_second=True,wr_outfile=True,chatter=1,background_template=e)
+            uvotgetspec.trackwidth = tw
+            Z = uvotgetspec.getSpec(ra,dec,obsid,ext,fit_second=True,wr_outfile=True,chatter=1,background_template=e,clobber=True)
     os.chdir('../../..') #CHANGE BACK TO THE ORIGINAL DIRECTORY
     print ('Finished extracting '+targetid+' using UVOTPY!')
 
