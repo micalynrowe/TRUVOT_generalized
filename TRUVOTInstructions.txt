@@ -56,7 +56,7 @@ General TRUVOT Instructions (& Fixes)
 			vii. Had to add exts and corresponding if statements to account for if there is only 1 extension or multiple
 			viii. Had to include if statements based on if it is a mix of g.pha or f.pha files with the existing if statements at the end (only did it at the end though, not the beginning, so I might have to do it at the start too)
 			ix. I ended up having to add the other if statements too lol. All fixed 
-			x. Also added an input to allow for a change in trackwidth
+			x. Also added an input to allow for a change in trackwidth. Changing the trackwidth allows for a more narrow extraction width to hopefully help get rid of any background interference with the TRUVOT spectra.
 			xi. Switched from uvotgrism to uvotgetspec at Paul’s request because uvotgrism didn’t have an allowance to change the trackwidth
 	8. Back to the IDL Window: Go back to your IDL window and run “idl_script2_generaluse, oobsid, oe”
 		a. uvotpy_script_generaluse: I had to tailor this script to be able to run generally.
